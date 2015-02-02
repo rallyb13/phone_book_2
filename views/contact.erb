@@ -1,0 +1,23 @@
+<h2> Keep in touch with <%= @contact.name() %>:</h2>
+
+<h5>Email:</h5>
+<p><%= @contact.email() %></p>
+<h5>Phone: </h5>
+<% @contact.numbers().each() do |numb| %>
+<ul>
+  <li><%= numb.number() %> <%= numb.type() %></li>
+</ul>
+<% end %>
+
+
+<form action="/phones" method="post">
+  <input type="hidden" name="contact_id" value="<%= @contact.id %>">
+  <label for="number">Add a phone number</label>
+  <input name="number" type="text">
+  <label for="type">Which line?</label>
+  <input name="type" type="text" placeholder="cell/home/work">
+  <button type="submit">Add it!</button>
+</form>
+
+<br>
+<a href="/" class="btn btn-md btn-primary">Back to contacts list</a>

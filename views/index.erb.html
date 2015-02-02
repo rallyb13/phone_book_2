@@ -1,0 +1,15 @@
+<h1>Keep Track of Your Contacts Here</h1>
+
+<form action="/contacts" method="post">
+  <input name="name" type="text" placeholder="Name">
+  <input name="email" type="text" placeholder="email@whatevs.com">
+  <button type="submit">Add New Contact</button>
+</form>
+
+</br>
+<h2>Your Contacts:</h2>
+<ul>
+  <% @contacts.each() do |contact| %>
+    <li><a href="/contact/<%= contact.id() %>"><%= contact.name() %></a></li>
+  <% end %>
+</ul>
